@@ -3,14 +3,18 @@ import CredentialsProvider from "next-auth/providers/credentials";
 import prisma from "@/lib/prisma";
 import bcrypt from "bcrypt";
 
-export const authOptions: NextAuthOptions = {
+export const options: NextAuthOptions = {
   providers: [
     CredentialsProvider({
       name: "Credentials",
       credentials: {
-        email: { label: "Email", type: "email", placeholder: "your email" },
+        email: {
+          label: "email",
+          type: "text",
+          placeholder: "your email",
+        },
         password: {
-          label: "Password",
+          label: "password",
           type: "password",
           placeholder: "your password",
         },
@@ -47,13 +51,13 @@ export const authOptions: NextAuthOptions = {
     error: "/signin",
   },
   callbacks: {
-    session({ session, token, user }) {
+    session: async ({ session, token, user }) => {
       if (session?.user) {
         session.user.id = token.uid;
       }
       return session;
     },
-    jwt: ({ token, user }) => {
+    jwt: async ({ user, token }) => {
       if (user) {
         token.uid = user.id;
       }
