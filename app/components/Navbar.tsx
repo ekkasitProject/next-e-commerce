@@ -22,15 +22,14 @@ const Navbar = (props: Props) => {
           <li className="hover:bg-gray-100 hover:text-neutral-900 px-5 py-2 cursor-pointer">
             {session.user.name}
           </li>
-
-          <li className="whitespace-nowrap hover:bg-gray-100 hover:text-neutral-900 px-5 py-2 cursor-pointer">
-            <a href="/addproduct">Add Product</a>
-          </li>
           <li
             onClick={() => signOut()}
             className="whitespace-nowrap hover:text-red-600 px-5 py-2 cursor-pointer"
           >
-            Logout
+            SignOut
+          </li>
+          <li className="whitespace-nowrap hover:bg-gray-100 hover:text-neutral-900 px-5 py-2 cursor-pointer">
+            <a href="/addproduct">Add Product</a>
           </li>
         </ul>
       );
@@ -51,7 +50,7 @@ const Navbar = (props: Props) => {
       <div className="flex items-center justify-between py-4 relative">
         <div className="flex items-center md:space-x-10 lg:space-x-20">
           <div className="font-semibold text-2xl">
-            <a href="/">SHOP</a>
+            <a href="/">E-Online</a>
           </div>
           <nav className="max-md:hidden">
             <ul className="flex items-center lg:space-x-10 space-x-7 opacity-70 text-[15px]">
@@ -60,11 +59,7 @@ const Navbar = (props: Props) => {
                   Shop
                 </a>
               </li>
-              <li>
-                <a href="filters" className="py-3 inline-block w-full">
-                  Filters
-                </a>
-              </li>
+
               {session?.user && (
                 <li>
                   <a href="myproducts" className="py-3 inline-block w-full">
@@ -130,11 +125,7 @@ const Navbar = (props: Props) => {
               Shop
             </a>
           </li>
-          <li>
-            <a href="/filters" className="py-3 inline-block w-full ">
-              Filters
-            </a>
-          </li>
+
           <li>
             <a href="/myproducts" className="py-3 inline-block w-full ">
               My Product
