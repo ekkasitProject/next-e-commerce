@@ -10,7 +10,7 @@ const Item = (props: Props) => {
   const [products, setProducts] = useState<any[]>([]);
 
   const fetchProduct = async () => {
-    const res = await axios.get("http://localhost:3000/api/allproduct");
+    const res = await axios.get("/api/allproduct");
     setProducts(res.data);
     console.log(res.data);
   };
