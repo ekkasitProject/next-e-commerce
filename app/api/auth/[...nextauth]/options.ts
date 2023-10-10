@@ -41,8 +41,15 @@ export const options: NextAuthOptions = {
         if (!isCorrectedPassword) {
           throw new Error("Invalid credentials");
         }
-
-        return user;
+        const authorizedUser: any = {
+          id: user.id,
+          name: user.name || "",
+          email: user.email,
+          password: user.password,
+          role: user.role || "USER",
+          picture: user.picture || "",
+        };
+        return authorizedUser;
       },
     }),
   ],
@@ -60,6 +67,9 @@ export const options: NextAuthOptions = {
     jwt: async ({ user, token }) => {
       if (user) {
         token.uid = user.id;
+        token.name = user.name;
+        token.email = user.email;
+        token.picture = user.picture; // เพิ่มข้อมูลรูปภาพใน token
       }
       return token;
     },

@@ -22,8 +22,10 @@
     "next-cloudinary": "^4.22.0",
     "react": "latest",
     "react-dom": "latest",
+    "react-google-button": "^0.7.2",
     "react-icons": "^4.11.0",
-    "react-pick-color": "^2.0.0"
+    "react-pick-color": "^2.0.0",
+    "react-rating-star-with-type": "^1.2.1"
   },
   "devDependencies": {
     "@types/bcrypt": "^5.0.0",

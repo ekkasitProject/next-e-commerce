@@ -14,9 +14,17 @@ datasource db {
 model User {
   id       Int       @id @default(autoincrement())
   name     String?
+  picture  String?
   email    String    @unique
   password String
+  role     Role      @default(USER)
   Product  Product[]
+  Cart     Cart[]
+}
+
+enum Role {
+  ADMIN
+  USER
 }
 
 model Product {
@@ -33,6 +41,18 @@ model Product {
   images      String
   userId      Int
   User        User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  Cart        Cart[]
 
+  @@index([userId])
+}
+
+model Cart {
+  id        Int     @id @default(autoincrement())
+  productId Int
+  Product   Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+  userId    Int
+  User      User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([productId])
   @@index([userId])
 }

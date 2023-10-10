@@ -14,6 +14,9 @@ export async function POST(request: Request) {
         name,
         email,
         password: hashedPassword,
+        picture:
+          "https://res.cloudinary.com/dv9fwcyl2/image/upload/v1696914268/image_default/turnzxkijlmnbafeguxj.jpg",
+        role: "USER",
       },
     });
     return NextResponse.json(user);

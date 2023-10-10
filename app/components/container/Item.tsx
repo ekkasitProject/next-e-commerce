@@ -12,7 +12,6 @@ const Item = (props: Props) => {
   const fetchProduct = async () => {
     const res = await axios.get("/api/allproduct");
     setProducts(res.data);
-    console.log(res.data);
   };
   useEffect(() => {
     fetchProduct();
@@ -20,10 +19,10 @@ const Item = (props: Props) => {
   return (
     <div>
       <h1 className="py-3 text-xl">Clothing</h1>
-      <div className="grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 md:gap-20 gap-12 ">
+      <div className="grid lg:grid-cols-4 sm:grid-cols-2 grid-cols-1 md:gap-20 gap-12 ">
         {products.map((product) => (
           <div key={product.id}>
-            <Link href={`/dashboard/${product.id}`}>
+            <Link href={`/productdetail/${product.id}`}>
               <div className="relative rounded-lg">
                 <img
                   src={product.images.split(",")[0]}
