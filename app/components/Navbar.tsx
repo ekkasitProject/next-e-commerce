@@ -13,7 +13,6 @@ const Navbar = (props: Props) => {
   const [showProfile, setShowProfile] = useState<boolean>(false);
   const [showNav, setShowNav] = useState<boolean>(false);
   const { data: session } = useSession();
-  // console.log(session?.user)
 
   const SignOut = () => {
     if (session && session.user) {
@@ -50,7 +49,7 @@ const Navbar = (props: Props) => {
       <div className="flex items-center justify-between py-4 relative">
         <div className="flex items-center md:space-x-10 lg:space-x-20">
           <div className="font-semibold text-2xl">
-            <a href="/">E-Online</a>
+            <a href="/">SHEIN</a>
           </div>
           <nav className="max-md:hidden">
             <ul className="flex items-center lg:space-x-10 space-x-7 opacity-70 text-[15px]">
@@ -76,11 +75,19 @@ const Navbar = (props: Props) => {
             onClick={() => setShowProfile(!showProfile)}
             className="relative cursor-pointer"
           >
-            <img
-              src="user.jpg"
-              className="w-[35px] h-[35px] rounded-full object-cover"
-              alt=""
-            />
+            {session?.user ? (
+              <img
+                src={session?.user?.image}
+                className="w-[35px] h-[35px] rounded-full object-cover"
+                alt=""
+              />
+            ) : (
+              <img
+                src="https://res.cloudinary.com/dv9fwcyl2/image/upload/v1696914268/image_default/turnzxkijlmnbafeguxj.jpg"
+                className="w-[35px] h-[35px] rounded-full object-cover"
+                alt=""
+              />
+            )}
             <div
               className={`absolute bg-white z-[2] rounded-lg shadow-lg ${
                 showProfile ? "" : "hidden"
