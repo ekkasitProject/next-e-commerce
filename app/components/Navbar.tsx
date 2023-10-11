@@ -83,7 +83,7 @@ const Navbar = (props: Props) => {
               />
             ) : (
               <img
-                src="user.jpg"
+                src="https://res.cloudinary.com/dv9fwcyl2/image/upload/v1696914268/image_default/turnzxkijlmnbafeguxj.jpg"
                 className="w-[35px] h-[35px] rounded-full object-cover"
                 alt=""
               />

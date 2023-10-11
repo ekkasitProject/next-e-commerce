@@ -62,7 +62,7 @@ const SignForm = (props: Props) => {
         />
         <button
           onClick={RegisterHandler}
-          className="p-2 border bg-purple-600 text-white border-gray-300 mt-2 mb-4 focus:outline-none focus:border-gray-600"
+          className="p-2 border bg-[#A4907C] text-white border-gray-300 mt-2 mb-4 focus:outline-none focus:border-gray-600"
         >
           Register Now
         </button>

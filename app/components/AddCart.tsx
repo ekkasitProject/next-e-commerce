@@ -36,7 +36,7 @@ const AddCart = ({ productId }: Props) => {
   return (
     <div
       onClick={handleCart}
-      className="flex items-center space-x-4 bg-purple-600 text-white px-6 p-2 rounded-full cursor-pointer"
+      className="flex items-center space-x-4 bg-[#A4907C] text-white px-6 p-2 rounded-full cursor-pointer"
     >
       <span>
         <CiShoppingCart size={24} />

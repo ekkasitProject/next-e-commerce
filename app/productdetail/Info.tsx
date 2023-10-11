@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import ReactStar from "react-rating-star-with-type";
+import ReactStars from "react-rating-star-with-type";
 import { FaRegCommentDots } from "react-icons/fa";
 import { CiShoppingCart, CiCreditCard1 } from "react-icons/ci";
 import { SlTag } from "react-icons/sl";
@@ -63,10 +63,15 @@ const Info: React.FC<Props> = ({
       <h1 className="text-2xl font-semibold">{title}</h1>
       <h3 className="text-sm text-neutral-500">{store}</h3>
       <div className="flex items-center space-x-12 mt-4">
-        <ReactStar value={2} size={20} />
+        <ReactStars
+          value={rating}
+          isEdit={false}
+          size={20}
+          activeColors={["gray", "orange", "#FFCE00", "#FF7800", "#FF0000"]}
+        />
         <span className="flex items-start space-x-3">
           <FaRegCommentDots size={22} />
-          <span className="opacity-70 text-sm">121 comment</span>
+          <span className="opacity-70 text-sm">{numbercomments} comment</span>
         </span>
       </div>
       <h3 className="font-medium mt-8 mb-3 text-[14px]">Select Size</h3>
